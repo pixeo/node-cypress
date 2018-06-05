@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:slim
 
 ENV npm_config_loglevel=warn
 
@@ -14,7 +14,7 @@ RUN apt-get update && \
     jq
 
 WORKDIR /app
-RUN npm i -g cypress
+RUN yarn global add cypress
 RUN npx cypress version
 
 CMD ["node", "--version"]
